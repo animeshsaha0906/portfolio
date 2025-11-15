@@ -23,7 +23,8 @@ const DetailedPortfolio = ({ onBack }) => {
         description:
           "Developed in hacakthon to have a unique in-person chat application that let any large social gathering into a connection hub",
         stack: ["Next.JS", "ReactJS", "Firebase"],
-        url: "https://icebreakervip.vercel.app",
+        liveUrl: "https://icebreakervip.vercel.app",
+        githubUrl: "https://github.com/animeshsaha/icebreakervip",
       },
       {
         title: "Draw it Right",
@@ -164,13 +165,26 @@ const DetailedPortfolio = ({ onBack }) => {
                           </span>
                         ))}
                       </div>
-                      {project.url && (
-                        <Button
-                          className="mt-4 w-full bg-slate-900 text-white dark:bg-white/10 dark:text-white"
-                          onClick={() => window.open(project.url, "_blank")}
-                        >
-                          Try it out
-                        </Button>
+                      {(project.liveUrl || project.githubUrl) && (
+                        <div className="mt-4 flex flex-col gap-2">
+                          {project.liveUrl && (
+                            <Button
+                              className="w-full bg-slate-900 text-white dark:bg-white/10 dark:text-white"
+                              onClick={() => window.open(project.liveUrl, "_blank")}
+                            >
+                              Try it out
+                            </Button>
+                          )}
+                          {project.githubUrl && (
+                            <button
+                              type="button"
+                              onClick={() => window.open(project.githubUrl, "_blank")}
+                              className="w-full rounded-2xl border border-slate-300 px-5 py-3 font-semibold text-slate-700 transition hover:border-slate-600 hover:text-slate-900 dark:border-white/40 dark:text-white dark:hover:border-white"
+                            >
+                              View on GitHub
+                            </button>
+                          )}
+                        </div>
                       )}
                     </CardContent>
                   </Card>
