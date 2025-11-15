@@ -1,3 +1,15 @@
+# Portfolio App
+
+This Create React App project powers Animesh Saha's portfolio. The contact form stores every submission inside Firebase and also triggers an email notification via EmailJS.
+
+## Contact + Email Setup
+
+1. Create a Firebase project, enable Firestore, and grab your config values (API key, project ID, etc.).
+2. Copy `.env.example` to `.env` and populate the `REACT_APP_FIREBASE_*` values.
+3. In EmailJS create a service + template, then add the corresponding IDs and public key to the `.env` file together with the email address you want to receive the messages (`REACT_APP_EMAILJS_TO_EMAIL`).
+4. Optionally add `REACT_APP_RESUME_URL` to point the “Download Resume” button at your hosted PDF.
+5. Restart `npm start` after editing environment variables so React can pick them up.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
