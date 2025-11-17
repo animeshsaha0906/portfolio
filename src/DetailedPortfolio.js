@@ -23,7 +23,7 @@ const DetailedPortfolio = ({ onBack }) => {
         description:
           "Developed in hacakthon to have a unique in-person chat application that let any large social gathering into a connection hub",
         stack: ["Next.JS", "ReactJS", "Firebase"],
-        liveUrl: "https://icebreakervip.vercel.app",
+        liveUrl: "https://ice-breaker-two.vercel.app",
         githubUrl: "https://github.com/animeshsaha/icebreakervip",
       },
       {
