@@ -142,7 +142,7 @@ const DetailedPortfolio = ({ onBack }) => {
               <h3 className="text-2xl font-semibold">Projects</h3>
               <Button
                 className="bg-white text-slate-900 shadow-md shadow-black/10 dark:bg-white/10 dark:text-white"
-                onClick={() => window.open("https://github.com/animeshsaha", "_blank")}
+                onClick={() => window.open("https://github.com/animeshsaha0906", "_blank")}
               >
                 View GitHub
               </Button>
