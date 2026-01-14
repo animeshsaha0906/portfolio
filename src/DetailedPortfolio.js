@@ -38,7 +38,7 @@ const DetailedPortfolio = ({ onBack }) => {
   const fadeIn = (delay = 0) => ({
     initial: { opacity: 0, y: 16 },
     whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
+    viewport: { once: false, amount: 0.35 },
     transition: { duration: 0.6, delay },
   });
 
@@ -102,8 +102,8 @@ const DetailedPortfolio = ({ onBack }) => {
             </div>
           </motion.section>
 
-          <section className="mt-12 grid gap-6 md:grid-cols-2">
-            <motion.div {...fadeIn(0.1)}>
+          <motion.section {...fadeIn(0.1)} className="mt-12 grid gap-6 md:grid-cols-2">
+            <motion.div {...fadeIn(0.15)}>
               <Card>
                 <CardContent>
                   <div className="flex items-center justify-between">
@@ -111,14 +111,14 @@ const DetailedPortfolio = ({ onBack }) => {
                     <span className="text-sm text-slate-500 dark:text-slate-400">In a nutshell</span>
                   </div>
                   <p className="text-slate-600 dark:text-slate-300">
-                    I am a senior Computer Science (Al/ML specialization) with the expected graduation in December 2025.
-                    As of now, I’m focused on full-stack development, experiment with computer vision, machine learning and being a teaching assistant for CSE 305: Programming language
+                    I have graduated in Computer Science (Al/ML specialization).
+                    I’m focused on full-stack development, experienced in buidling softwares using computer vision, machine learning and have experience in being a teaching assistant for CSE 305: Programming language
                   </p>
                 </CardContent>
               </Card>
             </motion.div>
 
-            <motion.div {...fadeIn(0.15)}>
+            <motion.div {...fadeIn(0.2)}>
               <Card>
                 <CardContent>
                   <h3 className="text-xl font-semibold">Technologies</h3>
@@ -135,9 +135,9 @@ const DetailedPortfolio = ({ onBack }) => {
                 </CardContent>
               </Card>
             </motion.div>
-          </section>
+          </motion.section>
 
-          <motion.section {...fadeIn(0.2)} className="mt-12">
+          <motion.section {...fadeIn(0.25)} className="mt-12">
             <div className="flex items-center justify-between">
               <h3 className="text-2xl font-semibold">Projects</h3>
               <Button

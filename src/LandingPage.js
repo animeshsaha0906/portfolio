@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -63,6 +64,13 @@ const LandingPage = ({ onViewDetails }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [typedText, setTypedText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
+
+  const fadeInSection = (delay = 0) => ({
+    initial: { opacity: 0, y: 32 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: false, amount: 0.35 },
+    transition: { duration: 0.6, delay },
+  });
 
   useEffect(() => {
     let index = 0;
@@ -140,7 +148,11 @@ const LandingPage = ({ onViewDetails }) => {
       </header>
 
       <main>
-        <section id="hero" className="flex h-screen items-center justify-center bg-gray-900 border-b border-gray-700 text-center">
+        <motion.section
+          id="hero"
+          {...fadeInSection(0)}
+          className="flex h-screen items-center justify-center border-b border-gray-700 bg-gray-900 text-center"
+        >
           <div className="max-w-4xl px-4">
             <p className="mb-4 text-xl font-medium text-sky-400 sm:text-2xl">
               <span className={`inline-block min-h-[1.5rem] ${isTyping ? "typing-cursor" : ""}`}>{typedText}</span>
@@ -174,9 +186,13 @@ const LandingPage = ({ onViewDetails }) => {
               )}
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        <section id="about" className="container mx-auto border-b border-gray-700 px-4 py-20 sm:px-6 lg:px-8 lg:py-32">
+        <motion.section
+          id="about"
+          {...fadeInSection(0.1)}
+          className="container mx-auto border-b border-gray-700 px-4 py-20 sm:px-6 lg:px-8 lg:py-32"
+        >
           <h2 className="mb-16 text-center text-4xl font-bold text-sky-400">About Me</h2>
 
           <div className="flex flex-col items-center lg:flex-row lg:space-x-12">
@@ -213,15 +229,20 @@ const LandingPage = ({ onViewDetails }) => {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        <section id="projects" className="container mx-auto border-b border-gray-700 px-4 py-20 sm:px-6 lg:px-8 lg:py-32">
+        <motion.section
+          id="projects"
+          {...fadeInSection(0.15)}
+          className="container mx-auto border-b border-gray-700 px-4 py-20 sm:px-6 lg:px-8 lg:py-32"
+        >
           <h2 className="mb-16 text-center text-4xl font-bold text-sky-400">Featured Projects</h2>
 
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => (
-              <div
+            {projects.map((project, index) => (
+              <motion.div
                 key={project.title}
+                {...fadeInSection(0.2 + index * 0.05)}
                 className="rounded-2xl bg-gray-800 shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-sky-500/30"
               >
                 <img src={project.image} alt={project.title} className="h-48 w-full rounded-t-2xl object-cover" />
@@ -245,12 +266,16 @@ const LandingPage = ({ onViewDetails }) => {
                     View Demo &rarr;
                   </a>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
-        <section id="contact" className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 lg:py-32">
+        <motion.section
+          id="contact"
+          {...fadeInSection(0.2)}
+          className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 lg:py-32"
+        >
           <h2 className="mb-16 text-center text-4xl font-bold text-sky-400">Get in Touch</h2>
           <div className="mx-auto max-w-xl rounded-2xl border border-gray-700 bg-gray-900 p-8 shadow-2xl sm:p-10">
             <p className="mb-6 text-center text-gray-300">I’m currently seeking new opportunities! Feel free to reach out.</p>
@@ -303,7 +328,7 @@ const LandingPage = ({ onViewDetails }) => {
               </button>
             </form>
           </div>
-        </section>
+        </motion.section>
       </main>
 
       <footer className="border-t border-gray-700 bg-gray-900 py-6 text-center text-sm text-gray-400">
