@@ -183,10 +183,9 @@ const Portfolio = () => {
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500">
                 <span className={`inline-block min-h-[1.25rem] ${isTyping ? "typing-cursor" : ""}`}>{typedText}</span>
               </p>
-              <h1 className="text-3xl font-bold sm:text-4xl">Coder · Researcher · Student</h1>
+              <h1 className="text-3xl font-bold sm:text-4xl">AI/ML Engineer · Researcher · Software Engineer</h1>
               <p className="text-slate-600 dark:text-slate-300">
-                I like to solve real world problems through coding and love to integrate machine learning with
-                software engineering.
+                A problem solver
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3 text-sm font-semibold text-slate-500 dark:text-slate-300 sm:justify-start">
                 <span className="rounded-full bg-blue-100/70 px-3 py-1 text-blue-700 dark:bg-blue-500/20 dark:text-blue-200">
@@ -225,8 +224,8 @@ const Portfolio = () => {
                     <span className="text-sm text-slate-500 dark:text-slate-400">In a nutshell</span>
                   </div>
                   <p className="text-slate-600 dark:text-slate-300">
-                    I have graduated in Computer Science (AI/ML specialization). I'm focused on full-stack
-                    development, experienced in building software using computer vision and machine learning, and
+                    I graduated in Computer Science (AI/ML specialization). I'm focused on full-stack
+                    development, experienced in building software and production ready platform with RAG pipeline computer vision and machine learning, and
                     have experience being a teaching assistant for CSE 305: Programming Languages.
                   </p>
                 </CardContent>
@@ -317,8 +316,8 @@ const Portfolio = () => {
                 <div className="mt-6 space-y-3 text-sm">
                   <p>
                     Email:{" "}
-                    <a href="mailto:asaha5@buffalo.edu" className="font-semibold text-blue-600 dark:text-blue-400">
-                      asaha5@buffalo.edu
+                    <a href="mailto:animeshsaha0906@gmail.com" className="font-semibold text-blue-600 dark:text-blue-400">
+                      animeshsaha0906@gmail.com
                     </a>
                   </p>
                   <p>
