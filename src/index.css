@@ -31,3 +31,37 @@ body {
     border-color: #38bdf8;
   }
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.shine-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(59, 130, 246, 0.45), transparent);
+  transform: skewX(-20deg);
+  animation: shine-sweep 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shine-sweep {
+  0% {
+    left: -150%;
+  }
+  55% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
+}

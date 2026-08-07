@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import emailjs from "@emailjs/browser";
-import { db, hasFirebaseConfig } from "../firebase";
 
 const INITIAL_STATE = {
   name: "",
@@ -31,30 +29,21 @@ const ContactForm = () => {
     setErrorMessage("");
 
     try {
-      if (db) {
-        await addDoc(collection(db, "contactMessages"), {
-          ...form,
-          createdAt: serverTimestamp(),
-        });
-      }
-
       const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
       const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
       const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
       const toEmail = process.env.REACT_APP_EMAILJS_TO_EMAIL;
 
-      if (serviceId && templateId && publicKey && toEmail) {
-        await emailjs.send(serviceId, templateId, {
-          from_name: form.name,
-          reply_to: form.email,
-          message: form.message,
-          to_email: toEmail,
-        }, publicKey);
-      } else {
-        console.warn(
-          "EmailJS environment variables missing. Submission saved to Firebase but email notification was skipped."
-        );
+      if (!serviceId || !templateId || !publicKey || !toEmail) {
+        throw new Error("Email is not configured. Please try again later.");
       }
+
+      await emailjs.send(serviceId, templateId, {
+        from_name: form.name,
+        reply_to: form.email,
+        message: form.message,
+        to_email: toEmail,
+      }, publicKey);
 
       setForm(INITIAL_STATE);
       setStatus("success");
@@ -69,13 +58,6 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      {!hasFirebaseConfig && (
-        <p className="text-sm text-amber-500">
-          Firebase is not configured yet. Messages will only be emailed until you add your
-          Firebase keys.
-        </p>
-      )}
-
       <div>
         <label htmlFor="name" className="block text-sm font-medium mb-1">
           Name
