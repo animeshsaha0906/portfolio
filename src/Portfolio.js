@@ -46,8 +46,9 @@ const projects = [
     subheading: "RAG-powered Q&A over recent arXiv research papers",
     image: "https://placehold.co/800x450/222d3e/a1a1aa?text=Re-SearchAI",
     description:
-      "An end-to-end Retrieval-Augmented Generation system that answers natural-language questions grounded in and cited from a corpus of recent arXiv papers on RAG, LLMs, and AI agents. Papers are chunked and embedded into a Qdrant vector store; a LangChain pipeline handles retrieval and calls the Gemini API for generation, served through a FastAPI backend with a Next.js chat UI. Currently being containerized for deployment on AWS EC2.",
+      "An end-to-end Retrieval-Augmented Generation system that answers natural-language questions grounded in and cited from a corpus of recent arXiv papers on RAG, LLMs, and AI agents. Papers are chunked and embedded into a Qdrant vector store; a LangChain pipeline handles retrieval and calls the Gemini API for generation, served through a FastAPI backend with a Next.js chat UI, containerized and deployed on AWS EC2.",
     stack: ["Python", "LangChain", "FastAPI", "Qdrant", "Gemini API", "Next.js", "TypeScript"],
+    liveUrl: "https://tinyurl.com/re-searchAI",
     githubUrl: "https://github.com/animeshsaha0906/project-E",
   },
   {
